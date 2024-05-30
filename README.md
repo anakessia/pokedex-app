@@ -1,9 +1,15 @@
-## PokeApi App
+# PokeApi App
 <p>PokeApi App é um projeto desenvolvido com Ionic e Angular que consome a API PokeAPI para exibir uma lista de Pokémons.</p>
 <p>Os usuários podem favoritar Pokémons, visualizar uma lista de seus Pokémons favoritos e ver detalhes de cada Pokémon.</p>
 <hr>
 
-## Funcionalidades
+## Demonstração do Projeto
+
+https://github.com/anakessia/pokedex-app/assets/56547583/d9e60b8f-dd82-4ae6-bae8-91b0066ad3a8
+
+<hr>
+
+# Funcionalidades
 
 - Página Principal: Exibe uma lista de Pokémons com seus detalhes básicos em forma de cards.
 - Favoritar Pokémon: Os usuários podem adicionar ou remover Pokémons de seus favoritos diretamente nos cards.
@@ -11,10 +17,19 @@
 - Detalhes do Pokémon: Exibe informações detalhadas sobre um Pokémon específico, como suas habilidades, tipos e estatísticas.
 <hr>
 
-## Demonstração do Projeto
+# Estrutura do Projeto
+- src/app/: Contém a estrutura principal do aplicativo.
+- components/: Componentes reutilizáveis.
+- services/: Serviços para interação com a API e gerenciamento de favoritos.
+- src/assets/: Recursos estáticos, como imagens e ícones.
+<hr>
 
-https://github.com/anakessia/pokedex-app/assets/56547583/d9e60b8f-dd82-4ae6-bae8-91b0066ad3a8
-
+## Dependências
+- Ionic Framework: Estrutura principal para desenvolvimento híbrido.
+- Angular: Framework para construção de aplicações web.
+- ngx-toastr: Biblioteca para notificações de toast.
+- PokeAPI: API pública para dados sobre Pokémons.
+<hr>
 
 # Instruções de uso
 
@@ -40,25 +55,11 @@ ionic serve
 Abra o seu navegador e acesse http://localhost:8100/ para visualizar o projeto em execução.
 <hr>
 
-## Configuração
+# Configuração
 <p>Certifique-se de que a PokeAPI está acessível. Este projeto usa a URL pública da API: https://pokeapi.co/api/v2.</p>
 <hr>
 
-## Estrutura do Projeto
-- src/app/: Contém a estrutura principal do aplicativo.
-- components/: Componentes reutilizáveis.
-- services/: Serviços para interação com a API e gerenciamento de favoritos.
-- src/assets/: Recursos estáticos, como imagens e ícones.
-<hr>
-
-## Dependências
-- Ionic Framework: Estrutura principal para desenvolvimento híbrido.
-- Angular: Framework para construção de aplicações web.
-- ngx-toastr: Biblioteca para notificações de toast.
-- PokeAPI: API pública para dados sobre Pokémons.
-<hr>
-
-## Contribuição
+# Contribuição
 <p>Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.</p>
 
 <p>Feito por Ana Kessia</p>
