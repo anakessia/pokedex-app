@@ -11,6 +11,12 @@
 - Detalhes do Pokémon: Exibe informações detalhadas sobre um Pokémon específico, como suas habilidades, tipos e estatísticas.
 <hr>
 
+![video-demo](https://github.com/anakessia/pokedex-app/assets/56547583/389c5e99-2d27-4e27-90ac-e68b8ac72d1d)
+
+
+
+
+
 # Instruções de uso
 
 Faça o clone do repositório do projeto:
