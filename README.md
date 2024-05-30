@@ -62,5 +62,3 @@ Abra o seu navegador e acesse http://localhost:8100/ para visualizar o projeto e
 <p>Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.</p>
 
 <p>Feito com ❤️ por Ana Kessia</p>
-
-<p>Para mais informações, visite a documentação do Ionic e a documentação do Angular.</p>
