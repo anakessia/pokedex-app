@@ -1,0 +1,245 @@
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .details {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+  }
+  
+  .container-image {
+    width: auto;
+    height: 200px;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+  }
+  
+  .pokemon-image {
+    display: flex;
+    justify-content: center;
+  
+    ion-img {
+      max-width: 150px;
+      height: 150px;
+      justify-content: center;
+      align-items: center;
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+    }
+  }
+  
+  .name-pokemon {
+    margin-top: 10px;
+    font-family: "Gill Sans", sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
+    gap: 10px;
+  }
+  
+  .code-pokemon {
+    color: #000;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .pokemon-types-row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 10px;
+  
+    .type-column,
+    .type-badge {
+      white-space: nowrap;
+    }
+  }
+  
+  .types-details{
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+  }
+  
+  .type-column {
+    padding: 4px 8px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .type-badge {
+    padding: 4px 8px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    color: #000000;
+    background-color: #bdbbbb;
+  }
+  
+  .pokemon-stats-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+   
+  }
+  
+  
+  .stats-title-col {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  
+   
+  .stat-label {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+  }
+  
+  .stat-value {
+    padding-top: -10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+    font-family: "Gill Sans", sans-serif;
+  }
+  
+  .progressbar-pokemons {
+    background-color: #fbf9f9;
+    border-radius: 10px;
+  }
+  
+  .base-status {
+    padding-top: 16px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    font-family: "Gill Sans", sans-serif;
+  }
+  
+  .pokemon-status-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px 20px;
+  }
+  
+  .status-bar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  
+    
+    .status-type-label {
+      margin-right: 5px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  
+    .progress-bar {
+      height: 18px;
+      flex-grow: 1;
+      overflow: hidden;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      margin-left: 40px;
+      background-color: #ffffff;
+    }
+  
+    
+    .status-text {
+     font-weight: bold;
+     font-size: 10px;
+     margin-left: 5px;
+     color: #000000;
+    }
+  }
+  
+  
+  // PROGRESS FILL
+    
+  .fill-progress {
+    height: 100%;
+  }
+  
+  .hp-bar .progress-fill {
+    background-color: #fa8072;
+  }
+  
+  .atk-bar .progress-fill {
+    background-color: #ff8c00;
+  }
+  
+  .def-bar .progress-fill {
+    background-color: #fbfb5c;
+  }
+  
+  .spa-bar .progress-fill {
+    background-color: #6565dd;
+  }
+  
+  .spd-bar .progress-fill {
+    background-color: #55d155;
+  }
+  
+  .spe-bar .progress-fill {
+    background-color: #ff69b4;
+  }
+  
+  
+  .arrow-back-circle-outline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    .button-back {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      align-items: center;
+      display: flex;
+  
+      ion-icon {
+        color: #1a1919;
+        font-size: 30px;
+        margin-right: 5px;
+      }
+    }
+  }
+  
+  // Estilização para tipos de Pokémon
+  .type-bug { background-color: #adde68; }
+  .type-dark { background-color: #5a5196; }
+  .type-dragon { background-color: #4751bf; }
+  .type-electric { background-color: #f7d600; }
+  .type-fairy { background-color: #ff99cc; }
+  .type-fighting { background-color: #a8372f; }
+  .type-fire { background-color: #ffc300; }
+  .type-flying { background-color: #99a9cc; }
+  .type-ghost { background-color: #b242eb; }
+  .type-grass { background-color: #8ee537; }
+  .type-ground { background-color: #b06523; }
+  .type-ice { background-color: #61f2e6; }
+  .type-normal { background-color: #cbccb8; }
+  .type-poison { background-color: #ac20d6; }
+  .type-psychic { background-color: #ff7a8a; }
+  .type-rock { background-color: #cc9e14; }
+  .type-steel { background-color: #99a9cc; }
+  .type-water { background-color: #73d0ff; }
+  .type-default { background-color: #989898; }
+  

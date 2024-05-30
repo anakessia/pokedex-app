@@ -31,7 +31,7 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "styles": ["node_modules/ngx-toastr/toastr.css","src/global.scss", "src/theme/variables.scss"],
             "scripts": []
           },
           "configurations": {
@@ -111,7 +111,7 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "styles": ["node_modules/ngx-toastr/toastr.css","src/global.scss", "src/theme/variables.scss"],
             "scripts": []
           },
           "configurations": {

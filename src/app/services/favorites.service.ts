@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
+
+
 @Injectable({
   providedIn: 'root',
 })
@@ -35,15 +37,15 @@ export class FavoritesService {
   }
 
   getFavorites(): number[] {
-    return this.favorites;
+    return this.favorites; 
   }
 
   private saveFavorites(): void {
-    localStorage.setItem('pokemonFavorite', JSON.stringify(this.favorites));
+    localStorage.setItem('pokemonFavorites', JSON.stringify(this.favorites));
   }
 
   private loadFavorites(): void {
-    const storedFavorites = localStorage.getItem('pokemonFavorite');
+    const storedFavorites = localStorage.getItem('pokemonFavorites');
     if (storedFavorites) {
       this.favorites = JSON.parse(storedFavorites);
     }

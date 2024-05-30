@@ -24,7 +24,7 @@
       <ion-col size="6" *ngFor="let pokemon of Pokemons">
         <div class="card-pokemons">
           <div class="container-pokemons" (click)="goToDetails(pokemon.details?.id)">
-            <img class="img-pokemon" [src]="getImage(pokemon)" alt="{{ pokemon.details?.name }}">
+            <img class="img-pokemon" [src]="getImage(pokemon)" [alt]="pokemon.details?.name">
           </div>
           <div class="content">
             <div class="header-section">
@@ -35,7 +35,7 @@
                     <ion-icon [name]="pokemon.isFavorite ? 'heart' : 'heart-outline'"></ion-icon>
                   </ion-button>
                 </div>
-                <p class="pokemon-name">{{pokemon.details?.name}}</p>
+                <p class="pokemon-name">{{ pokemon.details?.name }}</p>
                 <p class="pokemon-type">
                   <span class="type-container" *ngFor="let type of pokemon.details?.types">
                     <span class="type-label" [ngClass]="'type-' + type.type.name.toLowerCase()">

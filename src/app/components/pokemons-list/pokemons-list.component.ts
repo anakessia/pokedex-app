@@ -9,14 +9,14 @@ import { FavoritesService } from 'src/app/services/favorites.service';
   templateUrl: './pokemons-list.component.html',
   styleUrls: ['./pokemons-list.component.scss'],
 })
-export class PokemonsListComponent  implements OnInit {
+export class PokemonsListComponent implements OnInit {
   pokemonsList: any[] = [];
   Pokemons: any[] = [];
   itemsPerPage: number = 151;
 
   constructor(
     private pokemonService: PokemonService,
-    private favoriteService: FavoritesService,
+    private favoritesService: FavoritesService,
     private router: Router,
     private toastr: ToastrService
   ) {}
@@ -28,7 +28,11 @@ export class PokemonsListComponent  implements OnInit {
   getPokemons() {
     this.pokemonService.getPokemon(this.itemsPerPage, 0).subscribe((data) => {
       this.pokemonsList = data.results;
-      this.Pokemons = this.pokemonsList;
+      this.Pokemons = this.pokemonsList.map(pokemon => ({
+        ...pokemon,
+        details: null,
+        isFavorite: false
+      }));
       this.loadPokemonDetails();
     });
   }
@@ -36,9 +40,12 @@ export class PokemonsListComponent  implements OnInit {
   loadPokemonDetails() {
     this.pokemonsList.forEach((pokemon, index) => {
       const id = index + 1;
-      this.pokemonService.getPokemonDetail(id).subscribe((details) => {
-        pokemon.details = details;
-        pokemon.isFavorite = this.favoriteService.isFavorite(id);
+      this.pokemonService.getPokemonDetail(id).subscribe((detail) => {
+        const pokemonIndex = this.Pokemons.findIndex(p => p.name === pokemon.name);
+        if (pokemonIndex !== -1) {
+          this.Pokemons[pokemonIndex].details = detail;
+          this.Pokemons[pokemonIndex].isFavorite = this.favoritesService.isFavorite(id);
+        }
       });
     });
   }
@@ -69,23 +76,31 @@ export class PokemonsListComponent  implements OnInit {
   }
 
   private isFavorite(id: number): boolean {
-    return this.favoriteService.isFavorite(id);
+    return this.favoritesService.isFavorite(id);
   }
 
   private removeFavorites(id: number): void {
-    this.favoriteService.removeFavorites(id);
-    this.toastr.success('Pokemon removed from Favorites.', 'Success', {
-      timeOut: 3000,
-      positionClass: 'toast-top-right',
-    });
+    this.favoritesService.removeFavorites(id);
+    const removedPokemon = this.Pokemons.find(pokemon => pokemon.details?.id === id);
+    if (removedPokemon) {
+      removedPokemon.isFavorite = false;
+      this.toastr.success('Pokemon removed from Favorites.', 'Success', {
+        timeOut: 3000,
+        positionClass: 'toast-top-right',
+      });
+    }
   }
 
   private addFavorites(id: number): void {
-    this.favoriteService.addFavorites(id);
-    this.toastr.success('Pokemon added to Favorites!', 'Success', {
-      timeOut: 3000,
-      positionClass: 'toast-top-right',
-    });
+    this.favoritesService.addFavorites(id);
+    const addedPokemon = this.Pokemons.find(pokemon => pokemon.details?.id === id);
+    if (addedPokemon) {
+      addedPokemon.isFavorite = true;
+      this.toastr.success('Pokemon added to Favorites!', 'Success', {
+        timeOut: 3000,
+        positionClass: 'toast-top-right',
+      });
+    }
   }
 
   formatPokemonId(id: number): string {
@@ -96,11 +111,11 @@ export class PokemonsListComponent  implements OnInit {
   }
 
   goToFavoritesPage() {
-    return this.router.navigate(['/pokemon-favorite']);
+    this.router.navigate(['/pokemon-favorite']);
   }
 
   goToDetails(pokemonId: number) {
-    this.router.navigate(['/pokemon-details', pokemonId]);
+    this.router.navigate(['/pokemon-detail', pokemonId]);
   }
 
   getImage(pokemon: any) {

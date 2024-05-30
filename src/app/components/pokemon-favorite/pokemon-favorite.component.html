@@ -1,3 +1,61 @@
-<p>
-  pokemon-favorite works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="logo-container">
+        <img src="assets/icon/pokeapi.png" alt="PokeAPI" class="logo-title">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scrollY="true">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let pokemon of favoritePokemons">
+          <div class="card-pokemons">
+            <div class="container-pokemons" (click)="goToPokemonDetails(pokemon.details?.id)">
+              <img class="img-pokemon" [src]="getImage(pokemon)" alt="{{ pokemon.details?.name }}">
+            </div>
+            <div class="content">
+              <div class="header-section">
+                <div class="left-section">
+                  <div class="top-row">
+                    <p class="pokemon-code">#{{ pokemon.details?.id.toString().padStart(3, '0') }}</p>
+                    <ion-button fill="clear" (click)="toggleFavorite(pokemon)">
+                      <ion-icon [name]="pokemon.isFavorite ? 'heart' : 'heart-outline'"></ion-icon>
+                    </ion-button>
+                  </div>
+                  <p class="pokemon-name">{{pokemon.details?.name}}</p>
+                  <p class="pokemon-type">
+                    <span class="type-container" *ngFor="let type of pokemon.details?.types">
+                      <span class="type-label" [ngClass]="'type-' + type.type.name.toLowerCase()">
+                        {{ type.type.name }}
+                      </span>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-grid *ngIf="noFavorite">
+        <ion-row class="ion-text-center">
+          <ion-col size="6">
+            <p class="list-empty">Your list of favorite Pokémon is empty.</p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-text-center">
+          <ion-col size="12">
+            <ion-button (click)="backToMain()">Back</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-grid>
+    <div *ngIf="!noFavorite" class="pagination-controls">
+      <ion-button (click)="previousPage()" [disabled]="currentPage === 1">Previous</ion-button>
+      <ion-button (click)="backToMain()">Main Page</ion-button>
+      <ion-button (click)="nextPage()" [disabled]="!hasNextPage">Next</ion-button>
+    </div>
+</ion-content>

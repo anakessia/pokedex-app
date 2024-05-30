@@ -1,3 +1,136 @@
-<p>
-  pokemon-detail works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="logo-container">
+        <img src="assets/icon/pokeapi.png" alt="PokeAPI" class="logo-title">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="details">
+    <ion-row>
+      <ion-col>
+        <ion-row class="container-image" [ngClass]="pokemonTypeClass.toLowerCase()">
+          <ion-col class="arrow-back-circle-outline">
+            <button class="button-back" (click)="backToMain()">
+              <ion-icon name="arrow-back-circle-outline"></ion-icon>
+            </button>
+          </ion-col>
+          <div class="pokemon-image">
+            <ion-img [src]="getImage()" alt="Pokemon Image"></ion-img>
+          </div>
+        </ion-row>
+
+        <ion-row class="name-pokemon">
+          <ion-col>
+            <p class="code-pokemon">#{{ pokemonDetail?.id.toString().padStart(3, '0') }}</p>
+            {{ pokemonDetail?.name }}
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="pokemon-types-row">
+          <ion-col class="types-details">
+            <ng-container *ngIf="pokemonDetail?.types.length > 1; else singleType">
+              <ion-label class="type-column" *ngFor="let type of pokemonDetail?.types" [ngClass]="'type-' + type.type.name.toLowerCase()">
+                {{ type.type.name }}
+              </ion-label>
+            </ng-container>
+            <ng-template #singleType>
+              <ion-label class="type-badge" [ngClass]="'type-' + pokemonDetail?.types[0]?.type.name.toLowerCase()">
+                {{ pokemonDetail?.types[0]?.type.name }}
+              </ion-label>
+            </ng-template>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+
+      <ion-col>
+        <ion-row class="pokemon-stats-row">
+          <ion-col class="stats-title-col">
+            <ion-label class="stat-label">Weight</ion-label>
+            <ion-label class="stat-value">{{ pokemonDetail?.weight / 10 }} KG</ion-label>
+          </ion-col>
+
+          <ion-col class="stats-title-col">
+            <ion-label class="stat-label">Height</ion-label>
+            <ion-label class="stat-value">{{ pokemonDetail?.height / 10 }} M</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="progressbar-pokemons">
+          <ion-col>
+            <p class="base-status">Base Status</p>
+        
+            <ion-row class="pokemon-status-row">
+              <ion-col class="status-type-label">HP</ion-col>
+              <ion-col class="status-bar-container hp-bar">
+                <div class="progress-bar">
+                  <div class="progress-fill " [style.width]="(pokemonDetail?.stats[0]?.base_stat / 200) * 100 + '%'">
+                    <span class="status-text">{{ pokemonDetail?.stats[0]?.base_stat }}</span>
+                  </div>
+                </div>
+              </ion-col>
+            </ion-row>
+        
+            <ion-row class="pokemon-status-row">
+              <ion-col class="status-type-label">ATK</ion-col>
+              <ion-col class="status-bar-container atk-bar">
+                <div class="progress-bar">
+                  <div class="progress-fill " [style.width]="(pokemonDetail?.stats[1]?.base_stat / 200) * 100 + '%'">
+                    <span class="status-text">{{ pokemonDetail?.stats[1]?.base_stat }}</span>
+                  </div>
+                </div>
+              </ion-col>
+            </ion-row>
+        
+            <ion-row class="pokemon-status-row">
+              <ion-col class="status-type-label">DEF</ion-col>
+              <ion-col class="status-bar-container def-bar">
+                <div class="progress-bar">
+                  <div class="progress-fill " [style.width]="(pokemonDetail?.stats[2]?.base_stat / 250) * 100 + '%'">
+                    <span class="status-text">{{ pokemonDetail?.stats[2]?.base_stat }}</span>
+                  </div>
+                </div>
+              </ion-col>
+            </ion-row>
+        
+            <ion-row class="pokemon-status-row">
+              <ion-col class="status-type-label">SPA</ion-col>
+              <ion-col class="status-bar-container spa-bar">
+                <div class="progress-bar">
+                  <div class="progress-fill " [style.width]="(pokemonDetail?.stats[3]?.base_stat / 200) * 100 + '%'">
+                    <span class="status-text">{{ pokemonDetail?.stats[3]?.base_stat }}</span>
+                  </div>
+                </div>
+              </ion-col>
+            </ion-row>
+        
+            <ion-row class="pokemon-status-row">
+              <ion-col class="status-type-label">SPD</ion-col>
+              <ion-col class="status-bar-container spd-bar">
+                <div class="progress-bar">
+                  <div class="progress-fill " [style.width]="(pokemonDetail?.stats[4]?.base_stat / 200) * 100 + '%'">
+                    <span class="status-text">{{ pokemonDetail?.stats[4]?.base_stat }}</span>
+                  </div>
+                </div>
+              </ion-col>
+            </ion-row>
+        
+            <ion-row class="pokemon-status-row">
+              <ion-col class="status-type-label">SPE</ion-col>
+              <ion-col class="status-bar-container spe-bar">
+                <div class="progress-bar">
+                  <div class="progress-fill " [style.width]="(pokemonDetail?.stats[5]?.base_stat / 200) * 100 + '%'">
+                    <span class="status-text">{{ pokemonDetail?.stats[5]?.base_stat }}</span>
+                  </div>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
