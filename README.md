@@ -1,5 +1,5 @@
-## Pokedex App
-<p>Pokedex App é um projeto desenvolvido com Ionic e Angular que consome a API PokeAPI para exibir uma lista de Pokémons.</p>
+## PokeApi App
+<p>PokeApi App é um projeto desenvolvido com Ionic e Angular que consome a API PokeAPI para exibir uma lista de Pokémons.</p>
 <p>Os usuários podem favoritar Pokémons, visualizar uma lista de seus Pokémons favoritos e ver detalhes de cada Pokémon.</p>
 <hr>
 
