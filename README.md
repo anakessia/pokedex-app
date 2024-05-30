@@ -61,4 +61,4 @@ Abra o seu navegador e acesse http://localhost:8100/ para visualizar o projeto e
 ## Contribuição
 <p>Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.</p>
 
-<p>Feito com ❤️ por Ana Kessia</p>
+<p>Feito por Ana Kessia</p>
