@@ -15,7 +15,7 @@
 
 Faça o clone do repositório do projeto:
 ```sh
-git clone https://github.com/anakessia/profile-info-app.git
+git clone https://github.com/anakessia/pokedex-app.git
 ```
 
 Navegue até o diretório do projeto:
