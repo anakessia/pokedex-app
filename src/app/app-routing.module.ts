@@ -1,15 +1,21 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { PokemonsListComponent } from './components/pokemons-list/pokemons-list.component';
+import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
+import { PokemonFavoriteComponent } from './components/pokemon-favorite/pokemon-favorite.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: '',
+    component: PokemonsListComponent
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: 'pokemon-detail/:id',
+    component: PokemonDetailComponent
+  },
+  {
+    path: 'pokemon-favorite',
+    component: PokemonFavoriteComponent
   },
 ];
 
