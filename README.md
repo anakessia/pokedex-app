@@ -11,10 +11,9 @@
 - Detalhes do Pokémon: Exibe informações detalhadas sobre um Pokémon específico, como suas habilidades, tipos e estatísticas.
 <hr>
 
+## Demonstração do Projeto
 
-
-
-
+https://github.com/anakessia/pokedex-app/assets/56547583/d9e60b8f-dd82-4ae6-bae8-91b0066ad3a8
 
 
 # Instruções de uso
@@ -50,27 +49,6 @@ Abra o seu navegador e acesse http://localhost:8100/ para visualizar o projeto e
 - components/: Componentes reutilizáveis.
 - services/: Serviços para interação com a API e gerenciamento de favoritos.
 - src/assets/: Recursos estáticos, como imagens e ícones.
-<hr>
-
-## Funcionalidades em Detalhes
-<h2>Página Principal</h2>
-- Rota: /
-- Exibe uma lista de Pokémons em forma de cards.
-- Cada card contém o nome do Pokémon, uma imagem e um botão para favoritar/desfavoritar.
-
-<h2>Favoritar Pokémon</h2>
-- Usuários podem clicar no ícone de coração em cada card para adicionar ou remover o Pokémon dos favoritos.
-- Os favoritos são gerenciados localmente no navegador.
-
-<h2>Página de Favoritos</h2>
-Rota: /pokemon-favorite
-- Lista todos os Pokémons que foram marcados como favoritos pelo usuário.
-- Os usuários podem remover Pokémons da lista de favoritos diretamente nesta página.
-
-<h2>Detalhes do Pokémon</h2>
-Rota: /pokemon-detail/:id
-- Exibe detalhes completos sobre um Pokémon, incluindo habilidades, tipos e estatísticas.
-- A página de detalhes pode ser acessada clicando em um card na página principal ou na página de favoritos.
 <hr>
 
 ## Dependências
