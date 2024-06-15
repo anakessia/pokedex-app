@@ -26,25 +26,26 @@ export class PokemonsListComponent implements OnInit {
   }
 
   getPokemons() {
-    this.pokemonService.getPokemon(this.itemsPerPage, 0).subscribe((data) => {
-      this.pokemonsList = data.results;
-      this.Pokemons = this.pokemonsList.map(pokemon => ({
+    this.pokemonService.getPokemon(this.itemsPerPage, 0).subscribe((data: any) => {
+      this.pokemonsList = data.results.map((pokemon: any, index: number) => ({
         ...pokemon,
         details: null,
-        isFavorite: false
+        isFavorite: false,
+        id: index + 1 
       }));
+      this.Pokemons = [...this.pokemonsList]; 
       this.loadPokemonDetails();
     });
   }
 
   loadPokemonDetails() {
-    this.pokemonsList.forEach((pokemon, index) => {
-      const id = index + 1;
-      this.pokemonService.getPokemonDetail(id).subscribe((detail) => {
+    this.pokemonsList.forEach((pokemon: any) => {
+      this.pokemonService.getPokemonDetail(pokemon.id).subscribe((detail: any) => {
         const pokemonIndex = this.Pokemons.findIndex(p => p.name === pokemon.name);
         if (pokemonIndex !== -1) {
           this.Pokemons[pokemonIndex].details = detail;
-          this.Pokemons[pokemonIndex].isFavorite = this.favoritesService.isFavorite(id);
+          this.Pokemons[pokemonIndex].isFavorite = this.favoritesService.isFavorite(pokemon.id);
+          console.log(`Loaded details for ${pokemon.name}`, detail); 
         }
       });
     });
@@ -52,9 +53,12 @@ export class PokemonsListComponent implements OnInit {
 
   filterPokemons(event: any) {
     const searchTerm = event.target.value.toLowerCase();
-    this.Pokemons = this.pokemonsList.filter((pokemon) =>
-      pokemon.details?.name.toLowerCase().includes(searchTerm)
-    );
+    this.Pokemons = this.pokemonsList.filter((pokemon: any) => {
+      if (pokemon.details && pokemon.details.name) {
+        return pokemon.details.name.toLowerCase().includes(searchTerm);
+      }
+      return false;
+    });
   }
 
   toggleFavorite(pokemon: any) {
